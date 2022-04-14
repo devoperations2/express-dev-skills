@@ -9,22 +9,22 @@
       </li>
     <% }); %>
   </ul>
-<h3>Todos as of <%= time.toLocaleString() %></h3>
+<h3>Skills as of <%= time.toLocaleString() %></h3>
 <ul>
-  <% todos.forEach(function(t) { %>
+  <% skills.forEach(function(t) { %>
     <li>
       <!-- query parameters come after a "?" in the url
            They are a way to provide extra info to the server
            Similar to route params, except they do not influence
            how a route is matched
       -->
-      <form action="/skills/<%= t.id %>?_method=DELETE"
+      <form action="/skills/<%= s.id %>?_method=DELETE"
         class="delete-form"
         method="POST"
       >
         <button type="submit">X</button>
       </form>
-      <a href="/skills/<%= t.id %>"><%= s.skill %></a>
+      <a href="/skills/<%= s.id %>"><%= s.skill %></a>
       - 
       <%= s.done ? 'done' : 'not done' %>
     </li>
