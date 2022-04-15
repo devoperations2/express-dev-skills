@@ -8,7 +8,7 @@ const skills = [
 
 module.exports = {
     getAll,
-    getById 
+    getOne, 
     create,
     deleteOne,
     update
@@ -17,27 +17,28 @@ function getAll () {
     return skills
 };
 
-function getById(id) {
+function getOne(id) {
     return skills.find(function(skill) {
 
         return skill.id === id      
     }) 
 };
-function update(id, todo) {
+function update(id, skill) {
     id = parseInt(id);
-    const updatedTodo = todos.find((todo) => todo.id === id);
-    Object.assign(updatedTodo, todo);
+    const updatedSkill = skills.find((skill) => skill.id === id);
+    Object.assign(updatedSkill, skill);
   }
   
   function deleteOne(id) {
     id = parseInt(id);
-    const idx = todos.findIndex((todo) => todo.id === id);
-    todos.splice(idx, 1);
+    const idx = skills.findIndex((skill) => skill.id === id);
+    skills.splice(idx, 1);
   }
   
-  function create(todo) {
-    todo.id = Date.now() % 1000000;
-    todo.done = false;
-    todos.push(todo);
+  function create(skill) {
+    console.log(skill)
+    skill.id = Date.now() % 1000000;
+    skill.done = false;
+    skills.push(skill);
   }
   
